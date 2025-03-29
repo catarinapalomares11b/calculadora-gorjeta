@@ -75,7 +75,51 @@ main {
                 opacity: 0.35;
             }
         }
-
     }
 
+    .input-box:has(input:focus) {
+        outline: 2px solid var(--topaz);
+    }
+
+    .tip {
+        div{
+            margin-top: 1.6rem;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.6rem;
+            margin-top: .8rem;
+
+
+            button {
+                font-size: 2.4rem;
+                color: var(--white);
+                font-weight: 700;
+                border: none;
+                border-radius: .5rem;
+                padding-block: .6rem;
+                background: var(--sherpa-blue);
+    
+            }
+
+            input {
+                width: 100%; 
+                border: none;
+                background: var(--squeeze);
+                border-radius: .5rem;
+                font-size: 2.4rem;
+                font-weight: 700;
+                text-align: center;
+                color: var(--sherpa-blue);
+
+                &::placeholder {
+                    color: var(--beetle-green);
+                }
+        
+
+                &:focus {
+                    outline: 2px solid var(--topaz);
+                }
+            }
+        }
+    }
 }
