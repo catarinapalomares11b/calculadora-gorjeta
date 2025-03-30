@@ -41,10 +41,7 @@ function receiveCustomTipPercentage() {
     let customTipInput = document.querySelector("#custom-tip")
     tipPercentage = customTipInput.valueAsNumber / 100
 
-    if (buttonSelected !== null) {
-        buttonSelected.classList.remove("button-selected")
-        buttonSelected = null
-    }
+    removeClassButtonSelected()
     
     calculate()
 }
@@ -58,7 +55,7 @@ function calculate() {
 
         let totalStrong = document.querySelector(".total strong")
         let totalPerson = (bill / numberOfPeople) + tipAmountPerson
-        totalStrong.innerText = `$ ${totalPerson.toFixed(2)}`
+        totalStrong.innerText = `$${totalPerson.toFixed(2)}`
     
     } else {
         console.log("ainda não é possível calcular")
@@ -66,5 +63,24 @@ function calculate() {
 }
 
 function reset() {
+    billInput.value = ""
+    bill = 0
+
+    numberOfPeopleInput.value = ""
+    numberOfPeople = 0
     
+    removeClassButtonSelected()
+    document.querySelector("#custom-tip").value = ""
+
+    tipPercentage = 0
+
+    document.querySelector(".amount strong").innerText = "$0.00"
+    document.querySelector(".total strong").innerText = "$0.00"
+}
+
+function removeClassButtonSelected() {
+    if (buttonSelected !== null) {
+        buttonSelected.classList.remove("button-selected")
+        buttonSelected = null
+    }
 }
